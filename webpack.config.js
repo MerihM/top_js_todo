@@ -19,7 +19,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(scss)$/,
+                test: /\.(scss|sass|less|css)$/,
                 use: [
                     {
                         loader: miniCssExtractPlugin.loader
@@ -56,7 +56,7 @@ module.exports = {
                         publicPath: '../webfonts',
                     },
                 }
-            }
+            },
         ]
     }
 };
