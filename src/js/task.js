@@ -57,3 +57,10 @@ generateCard = obj => {
     taskCard.appendChild(taskButtons);
     return taskCard;
 }
+
+makeCards = arr => {
+    let allCards = document.createElement('main');
+    for (let task of arr)
+        allCards.appendChild(generateCard(task));
+    document.body.appendChild(allCards);
+}
