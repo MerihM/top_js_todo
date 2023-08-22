@@ -8,3 +8,10 @@ class Task {
         this.status = status;
     }
 }
+
+let ctrTask = 0;
+newTask = (title, description, dueDate, prority) => {
+    obj = new Task(ctrTask, title, description, dueDate, prority)
+    ctrTask++;
+    return obj;
+}
