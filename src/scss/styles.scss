@@ -1,3 +1,63 @@
 @import "bootstrap/scss/bootstrap";
 $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+.taskCard {
+    margin: 3%;
+    background-size: 200% 200%;
+    color: black;
+    border: solid black 0.1rem;
+}
+
+.slide {
+    background-position: right;
+    transition: all .2s ease-in-out;
+}
+
+.slide:hover {
+    background-position: left;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    scale: 1.005;
+    border: solid black 0.1rem;
+}
+
+.priority0 {
+    background-image: linear-gradient(to left, var(--bs-light) 50%, var(--bs-danger) 0);
+    border-left: solid var(--bs-danger) 0.4rem;
+}
+
+.priority1 {
+    background-image: linear-gradient(to left, var(--bs-light) 50%, var(--bs-warning) 0);
+    border-left: solid var(--bs-warning) 0.4rem;
+}
+
+.priority2 {
+    background-image: linear-gradient(to left, var(--bs-light) 50%, var(--bs-success) 0);
+    border-left: solid var(--bs-success) 0.4rem;
+}
+
+.taskInfo {
+    width: 50%;
+    padding-left: 5%;
+}
+
+.taskButtons {
+    width: 25%;
+    padding-right: 5%;
+}
+
+.taskCard i {
+    cursor: pointer;
+}
+
+.taskCard input[type=checkbox] {
+    scale: 1.5;
+}
+
+.title {
+    margin: 0 5%;
+}
+
+input[type=checkbox] {
+    margin-right: 5%;
+}
