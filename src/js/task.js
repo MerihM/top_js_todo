@@ -122,4 +122,56 @@ let generateEditModal = task => {
     closeModal.type = 'button';
     closeModal.ariaLabel = 'Close';
     closeModal.setAttribute('data-bs-dismiss', 'modal');
+
+        // BODY
+        for (let group of groups)
+        group.classList.add('mb-3');
+    group5.classList.add('form-check', 'mt-3', 'ms-2');
+    for (let label of labels)
+        label.classList.add('col-form-label');
+    for (let i of inputs)
+        i.classList.add('form-control');
+    l_title.setAttribute('for', `edit-title-${task.id}`);
+    l_title.innerText = 'Title:';
+    l_date.setAttribute('for', `edit-date-${task.id}`);
+    l_date.innerText = 'Date:';
+    l_description.setAttribute('for', `edit-description-${task.id}`);
+    l_description.innerText = 'Dascription:';
+    l_priority.setAttribute('for', `edit-priority-${task.id}`);
+    l_priority.innerText = 'Priority:';
+    l_status.classList.add('form-check-label');
+    l_status.setAttribute('for', `edit-status-${task.id}`);
+    l_status.innerText = 'Finished?';
+    i_title.type = 'text';
+    i_title.setAttribute('value', `${task.title}`);
+    i_title.id = `edit-title-${task.id}`;
+    i_date.type = 'date';
+    i_date.setAttribute('value', `${task.dueDate}`);
+    i_date.id = `edit-date-${task.id}`;
+    i_description.value += task.description;
+    i_description.id = `edit-description-${task.id}`;
+    i_priority.id = `edit-priority-${task.id}`;
+    i_priority.classList.add('form-select');
+    option1.innerText = 'Low';
+    option1.value = 2;
+    option2.innerText = 'Medium';
+    option2.value = 1;
+    option3.innerText = 'High';
+    option3.value = 0;
+    i_priority.add(option1);
+    i_priority.add(option2);
+    i_priority.add(option3);
+    for (let o of options) {
+        if (o.value === task.priority) {
+            o.setAttribute('selected', '');
+            break;
+        }
+    }
+    i_status.type = 'checkbox';
+    i_status.classList.add('form-check-input');
+    if (task.status)
+        i_status.setAttribute('checked', '');
+    i_status.id = `edit-status-${task.id}`;
+
+    
 }
