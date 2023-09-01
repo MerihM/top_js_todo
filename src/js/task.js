@@ -10,13 +10,13 @@ class Task {
 }
 
 let ctrTask = 0;
-newTask = (title, description, dueDate, prority) => {
+let newTask = (title, description, dueDate, prority) => {
     obj = new Task(ctrTask, title, description, dueDate, prority)
     ctrTask++;
     return obj;
 }
 
-generateCard = obj => {
+let generateCard = obj => {
     let taskInfo = document.createElement('div');
     let taskButtons = document.createElement('div');
     let check = document.createElement('input');
@@ -58,7 +58,7 @@ generateCard = obj => {
     return taskCard;
 }
 
-makeCards = arr => {
+let makeCards = arr => {
     let allCards = document.createElement('main');
     for (let task of arr)
         allCards.appendChild(generateCard(task));
