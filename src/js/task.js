@@ -114,4 +114,12 @@ let generateEditModal = task => {
     m_body.classList.add('modal-body');
     m_footer.classList.add('modal-footer');
 
+    // HEADER 
+    editTitle.classList.add('modal-title', 'fs-5');
+    editTitle.id = `edit-task-${task.id}`;
+    editTitle.innerText = 'Edit';
+    closeModal.classList.add('btn-close');
+    closeModal.type = 'button';
+    closeModal.ariaLabel = 'Close';
+    closeModal.setAttribute('data-bs-dismiss', 'modal');
 }
