@@ -1,17 +1,17 @@
 class Task {
-    constructor(id, title, description, dueDate, prority, status = false) {
+    constructor(id, title, description, dueDate, priority, status = false) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.prority = prority;
+        this.priority = priority;
         this.status = status;
     }
 }
 
 let ctrTask = 0;
-let newTask = (title, description, dueDate, prority) => {
-    obj = new Task(ctrTask, title, description, dueDate, prority)
+let newTask = (title, description, dueDate, priority) => {
+    obj = new Task(ctrTask, title, description, dueDate, priority)
     ctrTask++;
     return obj;
 }
@@ -27,7 +27,7 @@ let generateCard = obj => {
     let deleteT = document.createElement('i');
     let mark = document.createElement('i');
     let taskCard = document.createElement('div');
-    taskCard.classList.add('taskCard', 'd-flex', 'justify-content-between', 'align-items-center', 'slide', `priority${obj.prority}`);
+    taskCard.classList.add('taskCard', 'd-flex', 'justify-content-between', 'align-items-center', 'slide', `priority${obj.priority}`);
     taskInfo.classList.add('taskInfo', 'd-flex', 'justify-content-between', 'align-items-center');
     taskButtons.classList.add('taskButtons', 'd-flex', 'justify-content-between', 'align-items-center');
     check.setAttribute('type', 'checkbox');
