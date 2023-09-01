@@ -104,4 +104,14 @@ let generateEditModal = task => {
     let inputs = [i_date, i_description, i_title];
     let options = [option1, option2, option3];
 
+    modal.classList.add('modal', 'fade');
+    modal.id = `edit-modal-${task.id}`;
+    modal.tabIndex = -1;
+    modal.ariaHidden = 'true';
+    m_dialog.classList.add('modal-dialog');
+    m_content.classList.add('modal-content');
+    m_header.classList.add('modal-header');
+    m_body.classList.add('modal-body');
+    m_footer.classList.add('modal-footer');
+
 }
