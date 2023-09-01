@@ -143,17 +143,6 @@
 
 # Data Structure 
 
-### Task Object:
-```json
-{
-    "ID": "id from taskCtr",
-    "Title": "title from input",
-    "Description": "description from input",
-    "Priority": "priority from input",
-    "Date": "due date from input",
-    "Status": "finished status"
-}
-```
 ### Project Object:
 ```json
 {
@@ -176,22 +165,11 @@
 
 ## Task.js
 
-- Task class with the structure outlined above
-- **Create new task:**
-    - Takes title, description, priority, date, and status from modal as variables
-    - Initializes a new object with the given parameters
-    - Returns the initialized object
 - **Edit task:**
     - Takes an ID as an argument
     - Finds the task by ID
     - Takes title, description, priority, date, and status from the modal as variables
     - Assigns new values to the task
-- **Display new task modal:**
-    - Calls the `generate new task modal` function
-    - Displays the modal
-- **New Task modal:**
-    - Writes the modal using a Bootstrap template
-    - Returns the modal
 - **Display edit modal:**
     - Calls the `generate edit modal` function
     - Displays the modal
@@ -200,6 +178,14 @@
     - Finds the task with the given ID value
     - Writes the modal from a Bootstrap template with task values
     - Returns the modal
+
+- **Display new task modal:**
+    - Calls the `generate new task modal` function
+    - Displays the modal
+- **New Task modal:**
+    - Writes the modal using a Bootstrap template
+    - Returns the modal
+    
 - **Display details modal:**
     - Calls the `generate details modal` function
     - Displays the modal
@@ -208,23 +194,7 @@
     - Finds the task with the given ID value
     - Writes the modal from a Bootstrap template using task values
     - Returns the modal
-- **Make cards:**
-    - Takes an array as an argument
-    - Creates a variable div to hold the content
-    - Iterates through the array
-        - Creates an outer div variable
-        - Adds classes to the outer div
-        - Calls the function to generate a card
-        - Appends the generated card to the outer div
-        - Appends the outer div to the return div
-    - Returns the final div
-- **Generate card:**
-    - Takes an object as an argument
-    - Creates required variables for elements
-    - Adds classes to variable elements
-    - Adds values to variables
-    - Appends elements as needed
-    - Returns the generated card
+
 
 ## Projects.js
 
