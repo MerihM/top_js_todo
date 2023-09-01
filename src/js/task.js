@@ -10,8 +10,8 @@ class Task {
 }
 
 let ctrTask = 0;
-let newTask = (title, description, dueDate, priority) => {
-    obj = new Task(ctrTask, title, description, dueDate, priority)
+let newTask = (title, description, dueDate, priority, status = false) => {
+    obj = new Task(ctrTask, title, description, dueDate, priority, status)
     ctrTask++;
     return obj;
 }
@@ -184,33 +184,33 @@ let generateEditModal = task => {
     saveButton.id = `save-edit-${task.id}`;
     saveButton.innerHTML = 'Save';
 
-     //   APPENDING
+    //   APPENDING
 
-     m_header.appendChild(editTitle);
-     m_header.appendChild(closeModal);
-     m_content.appendChild(m_header);
-     group1.appendChild(l_title);
-     group1.appendChild(i_title);
-     form.appendChild(group1);
-     group2.appendChild(l_description);
-     group2.appendChild(i_description);
-     form.appendChild(group2);
-     group3.appendChild(l_date);
-     group3.appendChild(i_date);
-     form.appendChild(group3);
-     group4.appendChild(l_priority);
-     group4.appendChild(i_priority);
-     form.appendChild(i_priority);
-     group5.appendChild(l_status);
-     group5.appendChild(i_status);
-     form.appendChild(group5);
-     m_body.appendChild(form);
-     m_content.appendChild(m_body);
-     m_footer.appendChild(closeButton);
-     m_footer.appendChild(saveButton);
-     m_content.appendChild(m_footer);
-     m_dialog.appendChild(m_content);
-     modal.appendChild(m_dialog);
-     return modal;
+    m_header.appendChild(editTitle);
+    m_header.appendChild(closeModal);
+    m_content.appendChild(m_header);
+    group1.appendChild(l_title);
+    group1.appendChild(i_title);
+    form.appendChild(group1);
+    group2.appendChild(l_description);
+    group2.appendChild(i_description);
+    form.appendChild(group2);
+    group3.appendChild(l_date);
+    group3.appendChild(i_date);
+    form.appendChild(group3);
+    group4.appendChild(l_priority);
+    group4.appendChild(i_priority);
+    form.appendChild(i_priority);
+    group5.appendChild(l_status);
+    group5.appendChild(i_status);
+    form.appendChild(group5);
+    m_body.appendChild(form);
+    m_content.appendChild(m_body);
+    m_footer.appendChild(closeButton);
+    m_footer.appendChild(saveButton);
+    m_content.appendChild(m_footer);
+    m_dialog.appendChild(m_content);
+    modal.appendChild(m_dialog);
+    return modal;
 
 }
