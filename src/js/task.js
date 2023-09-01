@@ -123,8 +123,8 @@ let generateEditModal = task => {
     closeModal.ariaLabel = 'Close';
     closeModal.setAttribute('data-bs-dismiss', 'modal');
 
-        // BODY
-        for (let group of groups)
+    // BODY
+    for (let group of groups)
         group.classList.add('mb-3');
     group5.classList.add('form-check', 'mt-3', 'ms-2');
     for (let label of labels)
@@ -173,5 +173,16 @@ let generateEditModal = task => {
         i_status.setAttribute('checked', '');
     i_status.id = `edit-status-${task.id}`;
 
-    
+    // FOOTER
+
+    closeButton.classList.add('btn', 'btn-secondary');
+    closeButton.type = 'button';
+    closeButton.setAttribute('data-bs-dismiss', 'modal');
+    closeButton.innerText = 'Close';
+    saveButton.classList.add('btn', 'btn-primary');
+    saveButton.type = 'button';
+    saveButton.id = `save-edit-${task.id}`;
+    saveButton.innerHTML = 'Save';
+
+
 }
