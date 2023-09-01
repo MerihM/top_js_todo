@@ -70,32 +70,38 @@ let editModal = () => {
 }
 
 let generateEditModal = task => {
-
-    // <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    //   <div class="modal-dialog">
-    //     <div class="modal-content">
-    //       <div class="modal-header">
-    //         <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-    //         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    //       </div>
-    //       <div class="modal-body">
-    //         <form>
-    //           <div class="mb-3">
-    //             <label for="recipient-name" class="col-form-label">Recipient:</label>
-    //             <input type="text" class="form-control" id="recipient-name">
-    //           </div>
-    //           <div class="mb-3">
-    //             <label for="message-text" class="col-form-label">Message:</label>
-    //             <textarea class="form-control" id="message-text"></textarea>
-    //           </div>
-    //         </form>
-    //       </div>
-    //       <div class="modal-footer">
-    //         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    //         <button type="button" class="btn btn-primary">Send message</button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+    let modal = document.createElement('div');
+    let m_dialog = document.createElement('div');
+    let m_content = document.createElement('div');
+    let m_header = document.createElement('div');
+    let m_body = document.createElement('div');
+    let m_footer = document.createElement('div');
+    let group1 = document.createElement('div');
+    let group2 = document.createElement('div');
+    let group3 = document.createElement('div');
+    let group4 = document.createElement('div');
+    let group5 = document.createElement('div');
+    let editTitle = document.createElement('h2');
+    let closeModal = document.createElement('button');
+    let closeButton = document.createElement('button');
+    let saveButton = document.createElement('button');
+    let l_title = document.createElement('label');
+    let l_description = document.createElement('label');
+    let l_date = document.createElement('label');
+    let l_priority = document.createElement('label');
+    let l_status = document.createElement('label');
+    let i_title = document.createElement('input');
+    let i_date = document.createElement('input');
+    let i_description = document.createElement('textarea');
+    let i_status = document.createElement('input');
+    let i_priority = document.createElement('select');
+    let option1 = document.createElement('option');
+    let option2 = document.createElement('option');
+    let option3 = document.createElement('option');
+    let form = document.createElement('form');
+    let labels = [l_title, l_date, l_description, l_priority];
+    let groups = [group1, group2, group3, group4, group5];
+    let inputs = [i_date, i_description, i_title];
+    let options = [option1, option2, option3];
 
 }
