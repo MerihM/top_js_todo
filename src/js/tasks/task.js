@@ -10,10 +10,10 @@ class Task {
 }
 
 let ctrTask = 0;
-let newTask = (title, description, dueDate, priority, status = false) => {
-    obj = new Task(ctrTask, title, description, dueDate, priority, status)
+function newTask(title, description, dueDate, priority, status = false) {
+    let task = new Task(ctrTask, title, description, dueDate, priority, status);
     ctrTask++;
-    return obj;
+    return task;
 }
 function deleteModals() {
     let modals = document.querySelectorAll('.modal');
