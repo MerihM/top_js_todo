@@ -1,13 +1,14 @@
-let editModal = (e) => {
+function editModal(e, tasks) {
     let findID = e.srcElement.id.replace('edit-task-', '');
-    let modalID = document.querySelectorAll(`#edit-modal-${findID}`);
     for (let task of tasks) {
-        if (task.id == parseInt(findID) && (modalID.length == 0))
-            document.body.appendChild(generateEditModal(task))
+        if (task.id == parseInt(findID))
+            document.body.appendChild(generateEditModal(task));
     }
-    modalID = document.querySelectorAll(`#edit-modal-${findID}`);
-    var myModal = new bootstrap.Modal(modalID[0], focus);
+    modalID = document.querySelector(`#edit-modal-${findID}`);
+    var myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
+    let saveBtn = document.querySelector(`#save-edit-${findID}`);
+    saveBtn.addEventListener('click', editSave);
 }
 
 function generateEditModal(task) {
