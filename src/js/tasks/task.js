@@ -15,3 +15,8 @@ let newTask = (title, description, dueDate, priority, status = false) => {
     ctrTask++;
     return obj;
 }
+function deleteModals() {
+    let modals = document.querySelectorAll('.modal');
+    for (let modal of modals)
+        modal.remove();
+}
