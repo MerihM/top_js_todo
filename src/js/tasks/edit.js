@@ -10,7 +10,23 @@ function editModal(e, tasks) {
     let saveBtn = document.querySelector(`#save-edit-${findID}`);
     saveBtn.addEventListener('click', editSave);
 }
-
+function editSave(e) {
+    let findID = e.srcElement.id.replace('save-edit-', '');
+    let e_title = document.querySelector(`#edit-title-${findID}`);
+    let e_description = document.querySelector(`#edit-description-${findID}`);
+    let e_date = document.querySelector(`#edit-date-${findID}`);
+    let e_priority = document.querySelector(`#edit-priority-${findID}`);
+    let e_status = document.querySelector(`#edit-status-${findID}`);
+    for (let task of tasks) {
+        if (task.id == parseInt(findID)) {
+            task.title = e_title.value;
+            task.description = e_description.value;
+            task.dueDate = e_date.value;
+            task.priority = e_priority.value;
+            task.status = e_status.checked;
+        }
+    }
+}
 function generateEditModal(task) {
 
     let modal = document.createElement('div');
