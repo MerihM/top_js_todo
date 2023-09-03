@@ -13,9 +13,6 @@
 - Finish task button
 
 **Functionality:**
-- On hover:
-  - Priority strip slides and color changes
-  - Pop-up modal for additional options
 - On button click:
   - Details button: Opens details modal
   - Edit button: Opens edit modal
@@ -44,21 +41,6 @@
   - Edit button: Opens edit modal (if not finished)
   - Delete button: Deletes task, closes modal
   - Finish task button: Marks task as finished
-
-## Edit Modal
-
-**Display:**
-- Title (text input)
-- Details (textbox)
-- Due date (date input)
-- Priority selection (buttons?)
-- Save button
-- Close button
-
-**Functionality:**
-- On button click:
-  - Close button: Closes modal
-  - Save button: Saves changes, closes modal
 
 ## Notes Card
 
@@ -171,16 +153,6 @@
 - **New Task modal:**
     - Writes the modal using a Bootstrap template
     - Returns the modal
-    
-- **Display details modal:**
-    - Calls the `generate details modal` function
-    - Displays the modal
-- **Details modal:**
-    - Takes an ID as an argument
-    - Finds the task with the given ID value
-    - Writes the modal from a Bootstrap template using task values
-    - Returns the modal
-
 
 ## Projects.js
 
