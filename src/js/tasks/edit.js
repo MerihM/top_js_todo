@@ -1,5 +1,13 @@
-let editModal = () => {
-
+let editModal = (e) => {
+    let findID = e.srcElement.id.replace('edit-task-', '');
+    let modalID = document.querySelectorAll(`#edit-modal-${findID}`);
+    for (let task of tasks) {
+        if (task.id == parseInt(findID) && (modalID.length == 0))
+            document.body.appendChild(generateEditModal(task))
+    }
+    modalID = document.querySelectorAll(`#edit-modal-${findID}`);
+    var myModal = new bootstrap.Modal(modalID[0], focus);
+    myModal.show();
 }
 
 let generateEditModal = task => {
