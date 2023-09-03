@@ -24,6 +24,7 @@ let generateCard = obj => {
     details.setAttribute('title', 'Details');
     edit.classList.add('bi', 'bi-pencil-square');
     edit.setAttribute('title', 'Edit');
+    edit.id = `edit-task-${obj.id}`;
     deleteT.classList.add('bi', 'bi-trash');
     deleteT.setAttribute('title', 'Delete');
     mark.classList.add('bi', 'bi-check-lg');
