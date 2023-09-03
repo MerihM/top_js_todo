@@ -165,19 +165,11 @@
 
 ## Task.js
 
-- **Edit task:**
+- **Edit task(save):**
     - Takes an ID as an argument
     - Finds the task by ID
     - Takes title, description, priority, date, and status from the modal as variables
     - Assigns new values to the task
-- **Display edit modal:**
-    - Calls the `generate edit modal` function
-    - Displays the modal
-- **Edit modal:**
-    - Takes an ID as an argument
-    - Finds the task with the given ID value
-    - Writes the modal from a Bootstrap template with task values
-    - Returns the modal
 
 - **Display new task modal:**
     - Calls the `generate new task modal` function
