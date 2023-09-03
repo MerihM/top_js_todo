@@ -10,7 +10,7 @@ function editModal(e, tasks) {
     let saveBtn = document.querySelector(`#save-edit-${findID}`);
     saveBtn.addEventListener('click', editSave);
 }
-function editSave(e) {
+function editSave(e, tasks) {
     let findID = e.srcElement.id.replace('save-edit-', '');
     let e_title = document.querySelector(`#edit-title-${findID}`);
     let e_description = document.querySelector(`#edit-description-${findID}`);
