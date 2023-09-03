@@ -10,7 +10,8 @@ let editModal = (e) => {
     myModal.show();
 }
 
-let generateEditModal = task => {
+function generateEditModal(task) {
+
     let modal = document.createElement('div');
     let m_dialog = document.createElement('div');
     let m_content = document.createElement('div');
@@ -115,7 +116,6 @@ let generateEditModal = task => {
     i_status.id = `edit-status-${task.id}`;
 
     // FOOTER
-
     closeButton.classList.add('btn', 'btn-secondary');
     closeButton.type = 'button';
     closeButton.setAttribute('data-bs-dismiss', 'modal');
@@ -123,10 +123,10 @@ let generateEditModal = task => {
     saveButton.classList.add('btn', 'btn-primary');
     saveButton.type = 'button';
     saveButton.id = `save-edit-${task.id}`;
+    saveButton.setAttribute('data-bs-dismiss', 'modal');
     saveButton.innerHTML = 'Save';
 
     //   APPENDING
-
     m_header.appendChild(editTitle);
     m_header.appendChild(closeModal);
     m_content.appendChild(m_header);
