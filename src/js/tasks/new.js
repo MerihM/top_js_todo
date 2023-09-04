@@ -114,3 +114,10 @@ function generateNewModal(newID) {
     modal.appendChild(m_dialog);
     return modal;
 }
+
+function newModal(newID) {
+    document.body.appendChild(generateNewModal(newID));
+    modalID = document.querySelector(`#new-modal-${newID}`);
+    let myModal = new bootstrap.Modal(modalID, focus);
+    myModal.show();
+}
