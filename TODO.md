@@ -2,16 +2,6 @@
 
 ## Task Card
 
-**Display:**
-- Priority strip
-- Checkbox
-- Title
-- Details button
-- Due date
-- Edit button
-- Delete button
-- Finish task button
-
 **Functionality:**
 - On button click:
   - Details button: Opens details modal
@@ -25,7 +15,6 @@
 
 **Display:**
 - Title
-- Project association
 - Priority
 - Due date
 - Finish status
@@ -147,10 +136,10 @@
 
 ## Task.js
 
-- **Display new task modal:**
-    - Calls the `generate new task modal` function
+- **Display details modal:**
+    - Calls the `generate details modal` function
     - Displays the modal
-- **New Task modal:**
+- **Details modal:**
     - Writes the modal using a Bootstrap template
     - Returns the modal
 
@@ -169,13 +158,6 @@
         - Generates a collapsible member
         - Appends the collapsible member to `Projects div`
     - Returns `Projects div`
-- **Generate collapsible member:**
-    - Takes an object as an argument
-    - Creates required variables
-    - Adds classes to the variable
-    - Adds text based on object values
-    - Appends the needed content
-    - Returns the final div
 
 ## Notes.js
 
@@ -220,8 +202,6 @@
     - Appends everything to the side div
     - Calls and appends the `return projects structure` to the side div
     - Appends the side div to the body
-- **Clear page:**
-    - Deletes everything from the body
 
 ## Index.js
 
