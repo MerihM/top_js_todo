@@ -1,12 +1,4 @@
-function editModal(e, task) {
-    let findID = e.srcElement.id.replace('edit-task-', '');
-    document.body.appendChild(generateEditModal(task));
-    modalID = document.querySelector(`#edit-modal-${findID}`);
-    var myModal = new bootstrap.Modal(modalID, focus);
-    myModal.show();
-    let saveBtn = document.querySelector(`#save-edit-${findID}`);
-    saveBtn.addEventListener('click', editSave);
-}
+
 function editSave(e, task) {
     let findID = e.srcElement.id.replace('save-edit-', '');
     let e_title = document.querySelector(`#edit-title-${findID}`);

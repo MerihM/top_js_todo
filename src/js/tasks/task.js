@@ -32,3 +32,12 @@ function detailsModal(task) {
     let myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
 }
+function editModal(e, task) {
+    let findID = e.srcElement.id.replace('edit-task-', '');
+    document.body.appendChild(generateEditModal(task));
+    modalID = document.querySelector(`#edit-modal-${findID}`);
+    var myModal = new bootstrap.Modal(modalID, focus);
+    myModal.show();
+    let saveBtn = document.querySelector(`#save-edit-${findID}`);
+    saveBtn.addEventListener('click', editSave);
+}
