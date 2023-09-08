@@ -107,7 +107,7 @@ export function detailsModal(task) {
         deleteTask(btnID);
     })
 }
-export function editModal(task) {
+function editModal(task) {
     deleteModals();
     document.body.appendChild(generateEditModal(task));
     let modalID = document.querySelector(`#edit-modal-${task.id}`);
@@ -115,7 +115,7 @@ export function editModal(task) {
     myModal.show();
     let saveBtn = document.querySelector(`#save-edit-${task.id}`);
     saveBtn.addEventListener('click', () => {
-        editSave(task)
+        editSave(task, myModal);
     });
 }
 export function editSave(task) {
