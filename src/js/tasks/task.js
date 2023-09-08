@@ -106,17 +106,18 @@ function detailsModal(task) {
         deleteTask(btnID);
     })
 }
-
-
-function editModal(e, task) {
-    let findID = e.srcElement.id.replace('edit-task-', '');
+function editModal(task) {
+    deleteModals();
     document.body.appendChild(generateEditModal(task));
-    modalID = document.querySelector(`#edit-modal-${findID}`);
+    let modalID = document.querySelector(`#edit-modal-${task.id}`);
     var myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
-    let saveBtn = document.querySelector(`#save-edit-${findID}`);
-    saveBtn.addEventListener('click', editSave);
+    let saveBtn = document.querySelector(`#save-edit-${task.id}`);
+    saveBtn.addEventListener('click', () => {
+        editSave(task)
+    });
 }
+
 
 function editSave(e, task) {
     let findID = e.srcElement.id.replace('save-edit-', '');
