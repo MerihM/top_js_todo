@@ -1,20 +1,27 @@
+import { generateCard } from './card.js';
+import { generateDetailsModal } from './details.js';
+import { generateEditModal } from './edit.js';
 class Task {
-    constructor(id, title, description, dueDate, priority, status = false) {
+    constructor(id, title, description, dueDate, prority, status = false) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.priority = priority;
+        this.priority = prority;
         this.status = status;
     }
 }
-
 let ctrTask = 0;
-function newTask(title, description, dueDate, priority, status = false) {
-    let task = new Task(ctrTask, title, description, dueDate, priority, status);
+function newTask(title, description, dueDate, prority, status = false) {
+    let obj = new Task(ctrTask, title, description, dueDate, prority, status);
     ctrTask++;
-    return task;
+    return obj;
 }
+let arrOfTasks = [];
+arrOfTasks.push(newTask('Test', 'Test description', '2023-09-11', 2, true));
+arrOfTasks.push(newTask('Test2', 'Some other description', '2023-09-12', 1, true));
+arrOfTasks.push(newTask('Test3', 'This one is incomplete', '2023-09-14', 0));
+
 function deleteModals() {
     let modals = document.querySelectorAll('.modal');
     for (let modal of modals)
