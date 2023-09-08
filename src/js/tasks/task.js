@@ -117,10 +117,8 @@ function editModal(task) {
         editSave(task)
     });
 }
-
-
-function editSave(e, task) {
-    let findID = e.srcElement.id.replace('save-edit-', '');
+function editSave(task) {
+    let findID = task.id;
     let e_title = document.querySelector(`#edit-title-${findID}`);
     let e_description = document.querySelector(`#edit-description-${findID}`);
     let e_date = document.querySelector(`#edit-date-${findID}`);
@@ -129,6 +127,8 @@ function editSave(e, task) {
     task.title = e_title.value;
     task.description = e_description.value;
     task.dueDate = e_date.value;
-    task.priority = e_priority.value;
+    task.priority = parseInt(e_priority.value);
     task.status = e_status.checked;
+    updateCard(task);
+    addEvents(task.id);
 }
