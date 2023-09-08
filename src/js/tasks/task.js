@@ -118,20 +118,32 @@ function editModal(task) {
         editSave(task, myModal);
     });
 }
-export function editSave(task) {
+function editSave(task, modal) {
     let findID = task.id;
     let e_title = document.querySelector(`#edit-title-${findID}`);
     let e_description = document.querySelector(`#edit-description-${findID}`);
     let e_date = document.querySelector(`#edit-date-${findID}`);
     let e_priority = document.querySelector(`#edit-priority-${findID}`);
     let e_status = document.querySelector(`#edit-status-${findID}`);
-    task.title = e_title.value;
-    task.description = e_description.value;
-    task.dueDate = e_date.value;
-    task.priority = parseInt(e_priority.value);
-    task.status = e_status.checked;
-    updateCard(task);
-    addEvents(task.id);
+    let requiredData = ((e_title.value != '') && (e_date.value != ''))
+    if (requiredData) {
+        task.title = e_title.value;
+        task.description = e_description.value;
+        task.dueDate = e_date.value;
+        task.priority = parseInt(e_priority.value);
+        task.status = e_status.checked;
+        updateCard(task);
+        addEvents(task.id);
+        modal.hide();
+    }
+    else {
+        if (e_title.value == '' && e_date.value == '')
+            alert('Title and Date are required');
+        else if (e_title.value == '')
+            alert('Title is required');
+        else
+            alert('Date is required');
+    }
 }
 function newModal(newID) {
     document.body.appendChild(generateNewModal(newID));
