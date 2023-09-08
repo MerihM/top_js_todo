@@ -70,6 +70,12 @@ function makeCards(arr) {
     for (let task of allTasks)
         addEvents(task.id.replace('task-', ''));
 }
+function updateCard(obj) {
+    let task = document.querySelector(`#task-${obj.id}`);
+    task.id = 'task-delete';
+    task.parentNode.insertBefore(generateCard(obj), task);
+    deleteTask('delete');
+}
 
 function detailsModal(task) {
     document.body.appendChild(generateDetailsModal(task));
