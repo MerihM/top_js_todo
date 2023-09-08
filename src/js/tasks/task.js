@@ -20,3 +20,9 @@ function deleteModals() {
     for (let modal of modals)
         modal.remove();
 }
+let makeCards = arr => {
+    let allCards = document.createElement('main');
+    for (let task of arr)
+        allCards.appendChild(generateCard(task));
+    document.body.appendChild(allCards);
+}
