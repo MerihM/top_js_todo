@@ -80,15 +80,34 @@ function removeObjectWithId(id) {
     if (objWithIDIndex > -1)
         arrOfTasks.splice(objWithIDIndex, 1);
 }
-
-
-
 function detailsModal(task) {
+    deleteModals();
     document.body.appendChild(generateDetailsModal(task));
-    modalID = document.querySelector(`#details-modal-${task.id}`);
+    let modalID = document.querySelector(`#details-modal-${task.id}`);
     let myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
+    let status = document.querySelector(`#details-modal-status-${task.id}`);
+    let deleteM = document.querySelector(`#details-modal-delete-${task.id}`);
+    if (!task.status) {
+        let edit = document.querySelector(`#details-modal-edit-${task.id}`);
+        edit.addEventListener('click', () => {
+            editModal(task);
+        })
+
+    }
+    status.addEventListener('click', () => {
+        task.status = !task.status;
+        updateCard(task);
+        addEvents(task.id);
+    })
+    deleteM.addEventListener('click', (e) => {
+        let btnID = e.target.id.replace('details-modal-delete-', '');
+        removeObjectWithId(btnID);
+        deleteTask(btnID);
+    })
 }
+
+
 function editModal(e, task) {
     let findID = e.srcElement.id.replace('edit-task-', '');
     document.body.appendChild(generateEditModal(task));
