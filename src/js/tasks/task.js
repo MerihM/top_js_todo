@@ -26,3 +26,9 @@ let makeCards = arr => {
         allCards.appendChild(generateCard(task));
     document.body.appendChild(allCards);
 }
+function detailsModal(task) {
+    document.body.appendChild(generateDetailsModal(task));
+    modalID = document.querySelector(`#details-modal-${task.id}`);
+    let myModal = new bootstrap.Modal(modalID, focus);
+    myModal.show();
+}

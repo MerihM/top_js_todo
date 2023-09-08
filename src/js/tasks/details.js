@@ -1,9 +1,4 @@
-function detailsModal(task) {
-    document.body.appendChild(generateDetailsModal(task));
-    modalID = document.querySelector(`#details-modal-${task.id}`);
-    let myModal = new bootstrap.Modal(modalID, focus);
-    myModal.show();
-}
+
 function generateDetailsModal(task) {
     let modal = document.createElement('div');
     let m_dialog = document.createElement('div');
