@@ -32,6 +32,36 @@ function deleteTask(id) {
     selected.remove();
 }
 
+function addEvents(id) {
+    let deleteBtn = document.getElementById(`card-delete-${id}`);
+    let status = document.getElementById(`card-status-${id}`);
+    let details = document.getElementById(`card-details-${id}`);
+    let taskIndex = arrOfTasks.findIndex((obj) => obj.id == id)
+    let task = arrOfTasks[taskIndex];
+    if (!task.status) {
+        let edit = document.getElementById(`card-edit-${id}`);
+        edit.addEventListener('click', () => {
+            deleteModals();
+            editModal(task);
+        })
+    }
+    deleteBtn.addEventListener('click', (e) => {
+        let btnID = e.target.id.replace('card-delete-', '');
+        removeObjectWithId(btnID);
+        deleteTask(btnID);
+    })
+    status.addEventListener('click', (e) => {
+        let btnID = e.target.id.replace('card-status-', '');
+        task.status = !task.status;
+        updateCard(task);
+        addEvents(btnID);
+    })
+    details.addEventListener('click', () => {
+        deleteModals();
+        detailsModal(task);
+    })
+}
+
 
 let makeCards = arr => {
     let allCards = document.createElement('main');
