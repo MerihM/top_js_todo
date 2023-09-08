@@ -27,6 +27,12 @@ function deleteModals() {
     for (let modal of modals)
         modal.remove();
 }
+function deleteTask(id) {
+    let selected = document.getElementById(`task-${id}`)
+    selected.remove();
+}
+
+
 let makeCards = arr => {
     let allCards = document.createElement('main');
     for (let task of arr)
