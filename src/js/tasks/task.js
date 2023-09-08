@@ -31,7 +31,6 @@ function deleteTask(id) {
     let selected = document.getElementById(`task-${id}`)
     selected.remove();
 }
-
 function addEvents(id) {
     let deleteBtn = document.getElementById(`card-delete-${id}`);
     let status = document.getElementById(`card-status-${id}`);
@@ -76,6 +75,13 @@ function updateCard(obj) {
     task.parentNode.insertBefore(generateCard(obj), task);
     deleteTask('delete');
 }
+function removeObjectWithId(id) {
+    let objWithIDIndex = arrOfTasks.findIndex((obj) => obj.id == id)
+    if (objWithIDIndex > -1)
+        arrOfTasks.splice(objWithIDIndex, 1);
+}
+
+
 
 function detailsModal(task) {
     document.body.appendChild(generateDetailsModal(task));
