@@ -135,13 +135,7 @@
 # Modules
 
 ## Task.js
-
-- **Display details modal:**
-    - Calls the `generate details modal` function
-    - Displays the modal
-- **Details modal:**
-    - Writes the modal using a Bootstrap template
-    - Returns the modal
+- Link together everything
 
 ## Projects.js
 
