@@ -1,5 +1,4 @@
-
-function generateDetailsModal(task) {
+export function generateDetailsModal(task) {
     let modal = document.createElement('div');
     let m_dialog = document.createElement('div');
     let m_content = document.createElement('div');
@@ -30,7 +29,6 @@ function generateDetailsModal(task) {
     close.setAttribute('data-bs-dismiss', 'modal');
     m_header.appendChild(m_title);
     m_header.appendChild(close);
-
     d_description.innerText = 'Description: ' + task.description;
     d_date.innerText = 'Due Date: ' + task.dueDate;
     d_priority.innerText = 'Priority: '
@@ -54,6 +52,7 @@ function generateDetailsModal(task) {
     m_close.innerText = 'Close';
     m_finish.classList.add('btn', 'btn-outline-primary');
     m_finish.type = 'button';
+    m_finish.id = `details-modal-status-${task.id}`;
     m_finish.setAttribute('data-bs-dismiss', 'modal');
     if (task.status)
         m_finish.innerText = 'Mark as incomplete';
@@ -63,10 +62,12 @@ function generateDetailsModal(task) {
     m_edit.type = 'button';
     m_edit.setAttribute('data-bs-dismiss', 'modal');
     m_edit.innerText = 'Edit';
+    m_edit.id = `details-modal-edit-${task.id}`
     m_delete.classList.add('btn', 'btn-outline-danger');
     m_delete.type = 'button';
     m_delete.setAttribute('data-bs-dismiss', 'modal');
     m_delete.innerText = 'Delete';
+    m_delete.id = `details-modal-delete-${task.id}`
     m_footer.appendChild(m_finish);
     if (!task.status)
         m_footer.appendChild(m_edit);
