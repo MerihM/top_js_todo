@@ -1,3 +1,54 @@
+export function generateNewModal(newID) {
+    let modal = document.createElement('div');
+    let m_dialog = document.createElement('div');
+    let m_content = document.createElement('div');
+    let m_header = document.createElement('div');
+    let m_body = document.createElement('div');
+    let m_footer = document.createElement('div');
+    let m_title = document.createElement('h2');
+    let close = document.createElement('button');
+    let m_close = document.createElement('button');
+    let m_create = document.createElement('button');
+    let m_form = generateForm(newID);
+    m_dialog.classList.add('modal-dialog');
+    m_body.classList.add('modal-body');
+    m_content.classList.add('modal-content');
+    m_header.classList.add('modal-header');
+    m_footer.classList.add('modal-footer');
+    modal.classList.add('modal', 'fade');
+    modal.setAttribute('data-bs-backdrop', 'static');
+    modal.setAttribute('data-bs-keyboard', 'false');
+    modal.tabIndex = -1;
+    modal.id = `new-modal-${newID}`;
+    modal.ariaHidden = 'true';
+    m_title.classList.add('modal-title', 'fs-5');
+    m_title.id = `modal-title-new-${newID}`;
+    m_title.innerText = 'New Task';
+    close.classList.add('btn-close');
+    close.type = 'button';
+    close.setAttribute('data-bs-dismiss', 'modal');
+    close.ariaLabel = 'Close';
+    m_close.type = 'button';
+    m_close.classList.add('btn', 'btn-secondary');
+    m_close.setAttribute('data-bs-dismiss', 'modal');
+    m_close.innerText = 'Close'
+    m_create.type = 'button';
+    m_create.classList.add('btn', 'btn-primary');
+    m_create.id = `create-new-task-${newID}`;
+    // m_create.setAttribute('data-bs-dismiss', 'modal');
+    m_create.innerText = 'Create';
+    m_header.appendChild(m_title);
+    m_header.appendChild(close);
+    m_body.appendChild(m_form);
+    m_footer.appendChild(m_close);
+    m_footer.appendChild(m_create);
+    m_content.appendChild(m_header);
+    m_content.appendChild(m_body);
+    m_content.appendChild(m_footer);
+    m_dialog.appendChild(m_content);
+    modal.appendChild(m_dialog);
+    return modal;
+}
 function generateForm(newID) {
     let form = document.createElement('form');
     let group1 = document.createElement('div');
@@ -61,55 +112,4 @@ function generateForm(newID) {
     for (let group of groups)
         form.appendChild(group);
     return form;
-}
-function generateNewModal(newID) {
-    let modal = document.createElement('div');
-    let m_dialog = document.createElement('div');
-    let m_content = document.createElement('div');
-    let m_header = document.createElement('div');
-    let m_body = document.createElement('div');
-    let m_footer = document.createElement('div');
-    let m_title = document.createElement('h2');
-    let close = document.createElement('button');
-    let m_close = document.createElement('button');
-    let m_create = document.createElement('button');
-    let m_form = generateForm(newID);
-    m_dialog.classList.add('modal-dialog');
-    m_body.classList.add('modal-body');
-    m_content.classList.add('modal-content');
-    m_header.classList.add('modal-header');
-    m_footer.classList.add('modal-footer');
-    modal.classList.add('modal', 'fade');
-    modal.setAttribute('data-bs-backdrop', 'static');
-    modal.setAttribute('data-bs-keyboard', 'false');
-    modal.tabIndex = -1;
-    modal.id = `new-modal-${newID}`;
-    modal.ariaHidden = 'true';
-    m_title.classList.add('modal-title', 'fs-5');
-    m_title.id = `modal-title-new-${newID}`;
-    m_title.innerText = 'New Task';
-    close.classList.add('btn-close');
-    close.type = 'button';
-    close.setAttribute('data-bs-dismiss', 'modal');
-    close.ariaLabel = 'Close';
-    m_close.type = 'button';
-    m_close.classList.add('btn', 'btn-secondary');
-    m_close.setAttribute('data-bs-dismiss', 'modal');
-    m_close.innerText = 'Close'
-    m_create.type = 'button';
-    m_create.classList.add('btn', 'btn-primary');
-    m_create.id = `create-new-task-${newID}`;
-    m_create.setAttribute('data-bs-dismiss', 'modal');
-    m_create.innerText = 'Create';
-    m_header.appendChild(m_title);
-    m_header.appendChild(close);
-    m_body.appendChild(m_form);
-    m_footer.appendChild(m_close);
-    m_footer.appendChild(m_create);
-    m_content.appendChild(m_header);
-    m_content.appendChild(m_body);
-    m_content.appendChild(m_footer);
-    m_dialog.appendChild(m_content);
-    modal.appendChild(m_dialog);
-    return modal;
 }
