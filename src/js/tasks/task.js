@@ -108,7 +108,7 @@ export function detailsModal(task) {
         deleteTask(btnID);
     })
 }
-function editModal(task) {
+export function editModal(task) {
     deleteModals();
     document.body.appendChild(generateEditModal(task));
     let modalID = document.querySelector(`#edit-modal-${task.id}`);
@@ -119,7 +119,7 @@ function editModal(task) {
         editSave(task, myModal);
     });
 }
-function editSave(task, modal) {
+export function editSave(task, modal) {
     let findID = task.id;
     let e_title = document.querySelector(`#edit-title-${findID}`);
     let e_description = document.querySelector(`#edit-description-${findID}`);
@@ -146,7 +146,7 @@ function editSave(task, modal) {
             alert('Date is required');
     }
 }
-function newModal() {
+export function newModal() {
     deleteModals();
     document.body.appendChild(generateNewModal(ctrTask));
     let modalID = document.querySelector(`#new-modal-${ctrTask}`);
@@ -173,7 +173,7 @@ function newModal() {
         }
     })
 }
-function addNewTask(title, description, dueDate, priority) {
+export function addNewTask(title, description, dueDate, priority) {
     arrOfTasks.push(newTask(title, description, dueDate, priority));
     let main = document.querySelector('main');
     let task = arrOfTasks[arrOfTasks.length - 1];
