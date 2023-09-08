@@ -151,3 +151,10 @@ function newModal(newID) {
     let myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
 }
+function addNewTask(title, description, dueDate, priority) {
+    arrOfTasks.push(newTask(title, description, dueDate, priority));
+    let main = document.querySelector('main');
+    let task = arrOfTasks[arrOfTasks.length - 1];
+    main.appendChild(generateCard(task));
+    addEvents(task.id);
+}
