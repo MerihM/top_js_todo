@@ -62,7 +62,6 @@ function generateForm(newID) {
         form.appendChild(group);
     return form;
 }
-
 function generateNewModal(newID) {
     let modal = document.createElement('div');
     let m_dialog = document.createElement('div');
@@ -113,11 +112,4 @@ function generateNewModal(newID) {
     m_dialog.appendChild(m_content);
     modal.appendChild(m_dialog);
     return modal;
-}
-
-function newModal(newID) {
-    document.body.appendChild(generateNewModal(newID));
-    modalID = document.querySelector(`#new-modal-${newID}`);
-    let myModal = new bootstrap.Modal(modalID, focus);
-    myModal.show();
 }

@@ -133,3 +133,9 @@ export function editSave(task) {
     updateCard(task);
     addEvents(task.id);
 }
+function newModal(newID) {
+    document.body.appendChild(generateNewModal(newID));
+    modalID = document.querySelector(`#new-modal-${newID}`);
+    let myModal = new bootstrap.Modal(modalID, focus);
+    myModal.show();
+}
