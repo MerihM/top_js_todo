@@ -103,7 +103,6 @@ export function generateEditModal(task) {
     saveButton.classList.add('btn', 'btn-primary');
     saveButton.type = 'button';
     saveButton.id = `save-edit-${task.id}`;
-    saveButton.setAttribute('data-bs-dismiss', 'modal');
     saveButton.innerHTML = 'Save';
     m_header.appendChild(editTitle);
     m_header.appendChild(closeModal);
