@@ -61,14 +61,16 @@ function addEvents(id) {
         detailsModal(task);
     })
 }
-
-
-let makeCards = arr => {
+function makeCards(arr) {
     let allCards = document.createElement('main');
     for (let task of arr)
         allCards.appendChild(generateCard(task));
     document.body.appendChild(allCards);
+    let allTasks = document.querySelectorAll('.taskCard');
+    for (let task of allTasks)
+        addEvents(task.id.replace('task-', ''));
 }
+
 function detailsModal(task) {
     document.body.appendChild(generateDetailsModal(task));
     modalID = document.querySelector(`#details-modal-${task.id}`);
