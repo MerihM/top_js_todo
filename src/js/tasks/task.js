@@ -145,11 +145,32 @@ function editSave(task, modal) {
             alert('Date is required');
     }
 }
-function newModal(newID) {
-    document.body.appendChild(generateNewModal(newID));
-    modalID = document.querySelector(`#new-modal-${newID}`);
+function newModal() {
+    deleteModals();
+    document.body.appendChild(generateNewModal(ctrTask));
+    let modalID = document.querySelector(`#new-modal-${ctrTask}`);
     let myModal = new bootstrap.Modal(modalID, focus);
     myModal.show();
+    let saveBtn = document.querySelector(`#create-new-task-${ctrTask}`);
+    saveBtn.addEventListener('click', () => {
+        let title = document.querySelector(`#new-title-${ctrTask}`);
+        let description = document.querySelector(`#new-description-${ctrTask}`);
+        let date = document.querySelector(`#new-date-${ctrTask}`);
+        let priority = document.querySelector(`#new-priority-${ctrTask}`);
+        let requiredData = ((title.value != '') && (date.value != ''));
+        if (requiredData) {
+            addNewTask(title.value, description.value, date.value, priority.value);
+            myModal.hide();
+        }
+        else {
+            if (title.value == '' && date.value == '')
+                alert('Title and Date are required');
+            else if (title.value == '')
+                alert('Title is required');
+            else
+                alert('Date is required');
+        }
+    })
 }
 function addNewTask(title, description, dueDate, priority) {
     arrOfTasks.push(newTask(title, description, dueDate, priority));
