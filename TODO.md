@@ -1,36 +1,5 @@
 # Main part
 
-## Task Card
-
-**Functionality:**
-- On button click:
-  - Details button: Opens details modal
-  - Edit button: Opens edit modal
-  - Delete button: Deletes task
-  - Finish task button: Marks task as finished
-- On checkbox select:
-  - Display select all/delete selected section
-
-## Details Modal
-
-**Display:**
-- Title
-- Priority
-- Due date
-- Finish status
-- Details
-- Close button
-- Edit button (if not finished)
-- Delete button
-- Finish task button
-
-**Functionality:**
-- On button click:
-  - Close button: Closes modal
-  - Edit button: Opens edit modal (if not finished)
-  - Delete button: Deletes task, closes modal
-  - Finish task button: Marks task as finished
-
 ## Notes Card
 
 **Display:**
