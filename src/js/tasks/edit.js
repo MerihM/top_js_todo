@@ -1,5 +1,4 @@
-function generateEditModal(task) {
-
+export function generateEditModal(task) {
     let modal = document.createElement('div');
     let m_dialog = document.createElement('div');
     let m_content = document.createElement('div');
@@ -33,7 +32,6 @@ function generateEditModal(task) {
     let groups = [group1, group2, group3, group4, group5];
     let inputs = [i_date, i_description, i_title];
     let options = [option1, option2, option3];
-
     modal.classList.add('modal', 'fade');
     modal.id = `edit-modal-${task.id}`;
     modal.tabIndex = -1;
@@ -43,8 +41,6 @@ function generateEditModal(task) {
     m_header.classList.add('modal-header');
     m_body.classList.add('modal-body');
     m_footer.classList.add('modal-footer');
-
-    // HEADER 
     editTitle.classList.add('modal-title', 'fs-5');
     editTitle.id = `edit-task-${task.id}`;
     editTitle.innerText = 'Edit';
@@ -52,8 +48,6 @@ function generateEditModal(task) {
     closeModal.type = 'button';
     closeModal.ariaLabel = 'Close';
     closeModal.setAttribute('data-bs-dismiss', 'modal');
-
-    // BODY
     for (let group of groups)
         group.classList.add('mb-3');
     group5.classList.add('form-check', 'mt-3', 'ms-2');
@@ -92,7 +86,7 @@ function generateEditModal(task) {
     i_priority.add(option2);
     i_priority.add(option3);
     for (let o of options) {
-        if (o.value === task.priority) {
+        if (parseInt(o.value) === task.priority) {
             o.setAttribute('selected', '');
             break;
         }
@@ -102,8 +96,6 @@ function generateEditModal(task) {
     if (task.status)
         i_status.setAttribute('checked', '');
     i_status.id = `edit-status-${task.id}`;
-
-    // FOOTER
     closeButton.classList.add('btn', 'btn-secondary');
     closeButton.type = 'button';
     closeButton.setAttribute('data-bs-dismiss', 'modal');
@@ -113,8 +105,6 @@ function generateEditModal(task) {
     saveButton.id = `save-edit-${task.id}`;
     saveButton.setAttribute('data-bs-dismiss', 'modal');
     saveButton.innerHTML = 'Save';
-
-    //   APPENDING
     m_header.appendChild(editTitle);
     m_header.appendChild(closeModal);
     m_content.appendChild(m_header);
