@@ -1,4 +1,4 @@
-let generateCard = obj => {
+export function generateCard(obj) {
     let taskInfo = document.createElement('div');
     let taskButtons = document.createElement('div');
     let check = document.createElement('input');
@@ -20,20 +20,30 @@ let generateCard = obj => {
     taskCard.id = `task-${obj.id}`;
     title.innerText = `${obj.title}`;
     dueDate.innerText = `Due Date: ${obj.dueDate}`;
-    details.classList.add('bi', 'bi-info-circle');
+    details.classList.add('bi', 'bi-info-circle', 'details');
     details.setAttribute('title', 'Details');
-    edit.classList.add('bi', 'bi-pencil-square');
+    details.id = `card-details-${obj.id}`;
+    edit.classList.add('bi', 'bi-pencil-square', 'edit');
     edit.setAttribute('title', 'Edit');
-    edit.id = `edit-task-${obj.id}`;
-    deleteT.classList.add('bi', 'bi-trash');
+    edit.id = `card-edit-${obj.id}`;
+    deleteT.classList.add('bi', 'bi-trash', 'delete');
     deleteT.setAttribute('title', 'Delete');
-    mark.classList.add('bi', 'bi-check-lg');
-    mark.setAttribute('title', 'Mark as finished');
+    deleteT.id = `card-delete-${obj.id}`;
+    if (obj.status) {
+        mark.classList.add('bi', 'bi-toggle-on', 'status');
+        mark.setAttribute('title', 'Mark as incomplete');
+    }
+    else {
+        mark.classList.add('bi', 'bi-toggle-off', 'status');
+        mark.setAttribute('title', 'Mark as complete');
+    }
+    mark.id = `card-status-${obj.id}`;
     taskInfo.appendChild(check);
     taskInfo.appendChild(title);
     taskInfo.appendChild(dueDate);
     taskButtons.appendChild(details);
-    taskButtons.appendChild(edit);
+    if (!obj.status)
+        taskButtons.appendChild(edit);
     taskButtons.appendChild(deleteT);
     taskButtons.appendChild(mark);
     taskCard.appendChild(taskInfo);
