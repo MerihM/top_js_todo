@@ -1,7 +1,8 @@
 import { generateCard } from './card.js';
 import { generateDetailsModal } from './details.js';
 import { generateEditModal } from './edit.js';
-class Task {
+import * as bootstrap from 'bootstrap';
+export class Task {
     constructor(id, title, description, dueDate, prority, status = false) {
         this.id = id;
         this.title = title;
@@ -11,27 +12,27 @@ class Task {
         this.status = status;
     }
 }
-let ctrTask = 0;
-function newTask(title, description, dueDate, prority, status = false) {
+export let ctrTask = 0;
+export function newTask(title, description, dueDate, prority, status = false) {
     let obj = new Task(ctrTask, title, description, dueDate, prority, status);
     ctrTask++;
     return obj;
 }
-let arrOfTasks = [];
+export let arrOfTasks = [];
 arrOfTasks.push(newTask('Test', 'Test description', '2023-09-11', 2, true));
 arrOfTasks.push(newTask('Test2', 'Some other description', '2023-09-12', 1, true));
 arrOfTasks.push(newTask('Test3', 'This one is incomplete', '2023-09-14', 0));
 
-function deleteModals() {
+export function deleteModals() {
     let modals = document.querySelectorAll('.modal');
     for (let modal of modals)
         modal.remove();
 }
-function deleteTask(id) {
+export function deleteTask(id) {
     let selected = document.getElementById(`task-${id}`)
     selected.remove();
 }
-function addEvents(id) {
+export function addEvents(id) {
     let deleteBtn = document.getElementById(`card-delete-${id}`);
     let status = document.getElementById(`card-status-${id}`);
     let details = document.getElementById(`card-details-${id}`);
@@ -60,7 +61,7 @@ function addEvents(id) {
         detailsModal(task);
     })
 }
-function makeCards(arr) {
+export function makeCards(arr) {
     let allCards = document.createElement('main');
     for (let task of arr)
         allCards.appendChild(generateCard(task));
@@ -69,18 +70,18 @@ function makeCards(arr) {
     for (let task of allTasks)
         addEvents(task.id.replace('task-', ''));
 }
-function updateCard(obj) {
+export function updateCard(obj) {
     let task = document.querySelector(`#task-${obj.id}`);
     task.id = 'task-delete';
     task.parentNode.insertBefore(generateCard(obj), task);
     deleteTask('delete');
 }
-function removeObjectWithId(id) {
+export function removeObjectWithId(id) {
     let objWithIDIndex = arrOfTasks.findIndex((obj) => obj.id == id)
     if (objWithIDIndex > -1)
         arrOfTasks.splice(objWithIDIndex, 1);
 }
-function detailsModal(task) {
+export function detailsModal(task) {
     deleteModals();
     document.body.appendChild(generateDetailsModal(task));
     let modalID = document.querySelector(`#details-modal-${task.id}`);
@@ -106,7 +107,7 @@ function detailsModal(task) {
         deleteTask(btnID);
     })
 }
-function editModal(task) {
+export function editModal(task) {
     deleteModals();
     document.body.appendChild(generateEditModal(task));
     let modalID = document.querySelector(`#edit-modal-${task.id}`);
@@ -117,7 +118,7 @@ function editModal(task) {
         editSave(task)
     });
 }
-function editSave(task) {
+export function editSave(task) {
     let findID = task.id;
     let e_title = document.querySelector(`#edit-title-${findID}`);
     let e_description = document.querySelector(`#edit-description-${findID}`);
