@@ -23,6 +23,7 @@ export let arrOfTasks = [];
 arrOfTasks.push(newTask('Test', 'Test description', '2023-09-11', 2, true));
 arrOfTasks.push(newTask('Test2', 'Some other description', '2023-09-12', 1, true));
 arrOfTasks.push(newTask('Test3', 'This one is incomplete', '2023-09-14', 0));
+let unifinished = arrOfTasks.filter((t) => !t.status);
 
 export function deleteModals() {
     let modals = document.querySelectorAll('.modal');
@@ -206,6 +207,7 @@ sideArr.push(newProject('Projects'));
 sideArr.push(newProject('Notes'));
 sideArr[2].tasks = arrOfProjects;
 sideArr[0].tasks = arrOfTasks;
+sideArr[1].tasks = unifinished;
 arrOfProjects.push(newProject('Test'));
 arrOfProjects.push(newProject('Test 2'));
 arrOfProjects.push(newProject('Test 3'));
@@ -221,7 +223,7 @@ export function newProjectModal() {
         if (title.value != '') {
             arrOfProjects.push(newProject(title.value));
             myModal.hide();
-            updateSide();
+            update();
         }
         else
             alert('Title is required');
@@ -244,15 +246,6 @@ export function makeCardsP(arr) {
             // add display cards here
         })
     }
-}
-export function updateSide() {
-    update();
-    // let side = document.querySelector('side');
-    // side.remove();
-    // makeCardsP(sideArr);
-    // let side1 = document.querySelector('side');
-    // let main = document.querySelector('main');
-    // document.body.insertBefore(side1, main);
 }
 export function generateHome(index) {
     document.body.innerHTML = '';
