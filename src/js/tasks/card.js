@@ -1,7 +1,7 @@
 export function generateCard(obj) {
     let taskInfo = document.createElement('div');
     let taskButtons = document.createElement('div');
-    let check = document.createElement('input');
+    // let check = document.createElement('input');
     let title = document.createElement('h3');
     let dueDate = document.createElement('span');
     let details = document.createElement('i');
@@ -12,9 +12,9 @@ export function generateCard(obj) {
     taskCard.classList.add('taskCard', 'd-flex', 'justify-content-between', 'align-items-center', 'slide', `priority${obj.priority}`);
     taskInfo.classList.add('taskInfo', 'd-flex', 'justify-content-between', 'align-items-center');
     taskButtons.classList.add('taskButtons', 'd-flex', 'justify-content-between', 'align-items-center');
-    check.setAttribute('type', 'checkbox');
-    check.setAttribute('name', 'select');
-    check.setAttribute('id', `check-${obj.id}`);
+    // check.setAttribute('type', 'checkbox');
+    // check.setAttribute('name', 'select');
+    // check.setAttribute('id', `check-${obj.id}`);
     title.classList.add('title');
     dueDate.classList.add('date');
     taskCard.id = `task-${obj.id}`;
@@ -38,7 +38,7 @@ export function generateCard(obj) {
         mark.setAttribute('title', 'Mark as complete');
     }
     mark.id = `card-status-${obj.id}`;
-    taskInfo.appendChild(check);
+    // taskInfo.appendChild(check);
     taskInfo.appendChild(title);
     taskInfo.appendChild(dueDate);
     taskButtons.appendChild(details);
