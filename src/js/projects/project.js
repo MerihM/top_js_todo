@@ -1,5 +1,6 @@
 import { generateNewProject, generateCard } from "./modal.js";
 import * as task from '../tasks/task.js';
+import * as bootstrap from 'bootstrap';
 export class Project {
     constructor(id, title) {
         this.id = id;
@@ -13,8 +14,8 @@ export function newProject(title) {
     ctrProjects++;
     return obj;
 }
-let arrOfProjects = [];
-let sideArr = []
+export let arrOfProjects = [];
+export let sideArr = []
 sideArr.push(newProject('Home'));
 sideArr.push(newProject('Unfinished'));
 sideArr.push(newProject('Projects'));
