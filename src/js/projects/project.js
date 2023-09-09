@@ -74,3 +74,9 @@ export function updateSide() {
     let main = document.querySelector('main');
     document.body.insertBefore(side1, main)
 }
+export function generateHome(index) {
+    // document.body.innerHTML = '';
+    // let select = document.querySelector(`#project-container-${index}`);
+    makeCardsP(sideArr);
+    task.makeCards(sideArr[index].tasks);
+}
