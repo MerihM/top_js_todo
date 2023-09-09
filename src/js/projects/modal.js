@@ -66,3 +66,34 @@ export function generateNewProject(newID) {
     modal.appendChild(m_dialog);
     return modal;
 }
+export function generateCard(project, size = 2) {
+    let container = document.createElement('div');
+    let title = document.createElement('h4');
+    let numOfTasks = document.createElement('span');
+    container.id = `project-container-${project.id}`;
+    numOfTasks.classList.add('badge', 'text-bg-light');
+    title.classList.add(`ps-${size}`, 'pt-2', 'fw-light');
+    title.innerText = project.title;
+    if (project.id == 2) {
+        let upper = document.createElement('div');
+        let lower = document.createElement('div');
+        upper.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'pe-2');
+        numOfTasks.id = 'newProject';
+        numOfTasks.innerText = '+';
+        container.classList.add('d-flex', 'flex-column');
+        upper.appendChild(title);
+        upper.appendChild(numOfTasks);
+        for (let p of project.tasks)
+            lower.appendChild(generateCard(p, 4));
+        container.appendChild(upper);
+        container.appendChild(lower);
+        return container;
+    }
+    container.classList.add('cont');
+    container.appendChild(title);
+    if (project.tasks.length > 0) {
+        numOfTasks.innerText = project.tasks.length;
+        container.appendChild(numOfTasks);
+    }
+    return container;
+}
