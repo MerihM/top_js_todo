@@ -1,0 +1,1 @@
+import { generateNewProject, generateCard } from "./modal.js";
