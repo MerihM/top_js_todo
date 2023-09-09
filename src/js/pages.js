@@ -242,20 +242,32 @@ export function makeCardsP(arr) {
     let cont = document.querySelectorAll('.cont');
     for (let c of cont) {
         c.addEventListener('click', () => {
-            console.log(c.id);
-            // add display cards here
+            let tempID = c.id.replace('project-container-', '');
+            let sel = document.querySelector('.selected');
+            sel.classList.remove('selected');
+            c.classList.add('selected');
+            if (parseInt(tempID) > 3) {
+                let filt = arrOfProjects.filter((p) => p.id == tempID);
+                update(filt[0])
+            }
+            else {
+                update();
+            }
         })
     }
 }
-export function generateHome(index) {
+export function generateHome(index, arr = sideArr) {
+    if (arr == sideArr) {
+        arr = arr[index]
+    }
     document.body.innerHTML = '';
     makeCardsP(sideArr);
-    makeCards(sideArr[index].tasks);
+    makeCards(arr.tasks);
     let select = document.querySelector(`#project-container-${index}`);
     select.classList.add('selected');
 }
-export function update() {
+export function update(arr = sideArr) {
     let select = document.querySelector('.selected');
     let selID = select.id.replace('project-container-', '');
-    generateHome(parseInt(selID));
+    generateHome(parseInt(selID), arr);
 }
