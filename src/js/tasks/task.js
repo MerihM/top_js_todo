@@ -3,6 +3,7 @@ import { generateDetailsModal } from './details.js';
 import { generateEditModal } from './edit.js';
 import * as bootstrap from 'bootstrap';
 import { generateNewModal } from './new.js';
+import * as page from '../pages.js';
 export class Task {
     constructor(id, title, description, dueDate, prority, status = false) {
         this.id = id;
