@@ -27,3 +27,21 @@ export function deleteModals() {
     for (let modal of modals)
         modal.remove();
 }
+export function newProjectModal() {
+    deleteModals();
+    document.body.appendChild(generateNewProject(ctrProjects));
+    let modalID = document.querySelector(`#new-project-modal-${ctrProjects}`);
+    var myModal = new bootstrap.Modal(modalID, focus);
+    myModal.show();
+    let btn = document.querySelector(`#create-new-project-${ctrProjects}`);
+    btn.addEventListener('click', () => {
+        let title = document.querySelector(`#new-project-title-${ctrProjects}`);
+        if (title.value != '') {
+            arrOfProjects.push(newProject(title.value));
+            myModal.hide();
+            updateSide();
+        }
+        else
+            alert('Title is required');
+    })
+}
