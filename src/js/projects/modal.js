@@ -66,7 +66,7 @@ export function generateNewProject(newID) {
     modal.appendChild(m_dialog);
     return modal;
 }
-export function generateCard(project, size = 2) {
+export function generateCardP(project, size = 2) {
     let container = document.createElement('div');
     let title = document.createElement('h4');
     let numOfTasks = document.createElement('span');
@@ -84,7 +84,7 @@ export function generateCard(project, size = 2) {
         upper.appendChild(title);
         upper.appendChild(numOfTasks);
         for (let p of project.tasks)
-            lower.appendChild(generateCard(p, 4));
+            lower.appendChild(generateCardP(p, 4));
         container.appendChild(upper);
         container.appendChild(lower);
         return container;

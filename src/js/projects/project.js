@@ -1,4 +1,4 @@
-import { generateNewProject, generateCard } from "./modal.js";
+import { generateNewProject, generateCardP } from "./modal.js";
 import * as task from '../tasks/task.js';
 import * as bootstrap from 'bootstrap';
 export class Project {
@@ -52,7 +52,7 @@ export function makeCardsP(arr) {
     let allCards = document.createElement('side');
     allCards.classList.add('sd');
     for (let project of arr)
-        allCards.appendChild(generateCard(project));
+        allCards.appendChild(generateCardP(project));
     document.body.appendChild(allCards);
     let btn = document.querySelector('#newProject');
     btn.addEventListener('click', () => {
