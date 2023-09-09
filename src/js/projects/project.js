@@ -21,6 +21,7 @@ sideArr.push(newProject('Unfinished'));
 sideArr.push(newProject('Projects'));
 sideArr.push(newProject('Notes'));
 sideArr[2].tasks = arrOfProjects;
+sideArr[0].tasks = task.arrOfTasks;
 arrOfProjects.push(newProject('Test'));
 arrOfProjects.push(newProject('Test 2'));
 arrOfProjects.push(newProject('Test 3'));
