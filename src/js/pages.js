@@ -253,8 +253,9 @@ export function updateSide() {
     document.body.insertBefore(side1, main)
 }
 export function generateHome(index) {
-    // document.body.innerHTML = '';
-    // let select = document.querySelector(`#project-container-${index}`);
+    document.body.innerHTML = '';
     makeCardsP(sideArr);
     makeCards(sideArr[index].tasks);
+    let select = document.querySelector(`#project-container-${index}`);
+    select.classList.add('selected');
 }

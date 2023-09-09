@@ -91,6 +91,7 @@ main {
     padding: 5% 3%;
 }
 
-.cont:hover {
+.cont:hover,
+.selected {
     background-color: rgb(169, 35, 35);
 }
