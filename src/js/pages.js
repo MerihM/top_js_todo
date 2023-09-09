@@ -3,7 +3,8 @@ import * as task from './tasks/task.js';
 import * as project from './projects/project.js';
 
 export function generateHome(index) {
-    let select = document.querySelector(`#project-container-${index}`);
+    // document.body.innerHTML = '';
+    // let select = document.querySelector(`#project-container-${index}`);
     project.makeCardsP(project.sideArr);
     task.makeCards(project.sideArr[index].tasks);
 }
