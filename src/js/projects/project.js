@@ -45,3 +45,21 @@ export function newProjectModal() {
             alert('Title is required');
     })
 }
+export function makeCards(arr) {
+    let allCards = document.createElement('side');
+    allCards.classList.add('sd');
+    for (let project of arr)
+        allCards.appendChild(generateCard(project));
+    document.body.appendChild(allCards);
+    let btn = document.querySelector('#newProject');
+    btn.addEventListener('click', () => {
+        newProjectModal();
+    })
+    let cont = document.querySelectorAll('.cont');
+    for (let c of cont) {
+        c.addEventListener('click', () => {
+            console.log(c.id);
+            // add display cards here
+        })
+    }
+}
