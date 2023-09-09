@@ -32,6 +32,7 @@ export function deleteModals() {
 export function deleteTask(id) {
     let selected = document.getElementById(`task-${id}`)
     selected.remove();
+    update();
 }
 export function addEvents(id) {
     let deleteBtn = document.getElementById(`card-delete-${id}`);
@@ -245,12 +246,13 @@ export function makeCardsP(arr) {
     }
 }
 export function updateSide() {
-    let side = document.querySelector('side');
-    side.remove();
-    makeCardsP(sideArr);
-    let side1 = document.querySelector('side');
-    let main = document.querySelector('main');
-    document.body.insertBefore(side1, main)
+    update();
+    // let side = document.querySelector('side');
+    // side.remove();
+    // makeCardsP(sideArr);
+    // let side1 = document.querySelector('side');
+    // let main = document.querySelector('main');
+    // document.body.insertBefore(side1, main);
 }
 export function generateHome(index) {
     document.body.innerHTML = '';
@@ -258,4 +260,9 @@ export function generateHome(index) {
     makeCards(sideArr[index].tasks);
     let select = document.querySelector(`#project-container-${index}`);
     select.classList.add('selected');
+}
+export function update() {
+    let select = document.querySelector('.selected');
+    let selID = select.id.replace('project-container-', '');
+    generateHome(parseInt(selID));
 }
