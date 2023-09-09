@@ -22,3 +22,8 @@ sideArr[2].tasks = arrOfProjects;
 arrOfProjects.push(newProject('Test'));
 arrOfProjects.push(newProject('Test 2'));
 arrOfProjects.push(newProject('Test 3'));
+export function deleteModals() {
+    let modals = document.querySelectorAll('.modal');
+    for (let modal of modals)
+        modal.remove();
+}
