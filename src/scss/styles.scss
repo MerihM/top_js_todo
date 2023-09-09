@@ -61,3 +61,36 @@ $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 input[type=checkbox] {
     margin-right: 5%;
 }
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+side {
+    width: 25%;
+    display: block;
+    background-color: red;
+}
+
+main {
+    width: 75%;
+    background-color: aqua;
+}
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 3%;
+}
+
+.cont:hover {
+    background-color: rgb(169, 35, 35);
+}
