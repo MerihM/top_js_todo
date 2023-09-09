@@ -48,7 +48,7 @@ export function newProjectModal() {
             alert('Title is required');
     })
 }
-export function makeCards(arr) {
+export function makeCardsP(arr) {
     let allCards = document.createElement('side');
     allCards.classList.add('sd');
     for (let project of arr)
@@ -69,7 +69,7 @@ export function makeCards(arr) {
 export function updateSide() {
     let side = document.querySelector('side');
     side.remove();
-    makeCards(sideArr);
+    makeCardsP(sideArr);
     let side1 = document.querySelector('side');
     let main = document.querySelector('main');
     document.body.insertBefore(side1, main)

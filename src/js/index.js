@@ -5,6 +5,6 @@ import * as project from './projects/project.js';
 require('bootstrap-icons/font/bootstrap-icons.css');
 
 window.addEventListener('load', () => {
-    project.makeCards(project.sideArr);
+    project.makeCardsP(project.sideArr);
     task.makeCards(task.arrOfTasks);
 })
