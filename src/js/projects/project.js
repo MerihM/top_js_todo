@@ -63,3 +63,11 @@ export function makeCards(arr) {
         })
     }
 }
+export function updateSide() {
+    let side = document.querySelector('side');
+    side.remove();
+    makeCards(sideArr);
+    let side1 = document.querySelector('side');
+    let main = document.querySelector('main');
+    document.body.insertBefore(side1, main)
+}
