@@ -1,4 +1,5 @@
 import { generateNewProject, generateCard } from "./modal.js";
+import * as task from '../tasks/task.js';
 export class Project {
     constructor(id, title) {
         this.id = id;
