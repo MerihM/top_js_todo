@@ -174,6 +174,7 @@ export function newModal() {
         let requiredData = ((title.value != '') && (date.value != ''));
         if (requiredData) {
             addNewTask(title.value, description.value, date.value, priority.value);
+            // localStorage.setItem('ta', JSON.stringify(arrOfTasks))
             myModal.hide();
             update();
         }
@@ -234,6 +235,7 @@ export function newProjectModal() {
         let title = document.querySelector(`#new-project-title-${ctrProjects}`);
         if (title.value != '') {
             arrOfProjects.push(newProject(title.value));
+            // localStorage.setItem('tp', JSON.stringify(arrOfProjects))
             myModal.hide();
             update();
         }
@@ -266,7 +268,19 @@ export function generateHome(index, arr = sideArr) {
     if (arr == sideArr) {
         arr = arr[index]
     }
+    // let temp = JSON.parse(localStorage.getItem('tp'));
+    // let tt = JSON.parse(localStorage.getItem('ta'));
+    // arrOfProjects = [];
+    // arrOfTasks = [];
+    // for (let o in temp) {
+    //     arrOfProjects.push(temp[o]);
+    // }
+    // for (let t in tt)
+    //     arrOfTasks.push(tt[t]);
+    // sideArr[2].tasks = arrOfProjects;
     document.body.innerHTML = '';
+    unifinished = arrOfTasks.filter((t) => !t.status);
+    sideArr[1].tasks = unifinished;
     makeCardsP(sideArr);
     makeCards(arr.tasks);
     let select = document.querySelector(`#project-container-${index}`);
@@ -280,8 +294,10 @@ export function update(arr = sideArr) {
         let filt = arrOfProjects.filter((p) => p.id == parseInt(selID));
         arr = filt[0];
     }
-    unifinished = arrOfTasks.filter((t) => !t.status);
-    sideArr[1].tasks = unifinished;
+    // console.log(cookie);
+    // console.log(cookie['tasks-arr']);
+    // console.log('wow')
+
     generateHome(parseInt(selID), arr);
 }
 export function newBtn() {
