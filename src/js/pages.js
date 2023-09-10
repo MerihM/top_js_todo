@@ -31,9 +31,8 @@ export function deleteModals() {
         modal.remove();
 }
 export function deleteTask(id) {
-    let selected = document.getElementById(`task-${id}`)
+    let selected = document.getElementById(`task-${id}`);
     selected.remove();
-    // update();
 }
 export function addEvents(id) {
     let deleteBtn = document.getElementById(`card-delete-${id}`);
@@ -256,7 +255,6 @@ export function makeCardsP(arr) {
     let cont = document.querySelectorAll('.cont');
     for (let c of cont) {
         c.addEventListener('click', () => {
-            let tempID = c.id.replace('project-container-', '');
             let sel = document.querySelector('.selected');
             sel.classList.remove('selected');
             c.classList.add('selected');
@@ -272,9 +270,8 @@ export function generateHome(index, arr = sideArr) {
     // let tt = JSON.parse(localStorage.getItem('ta'));
     // arrOfProjects = [];
     // arrOfTasks = [];
-    // for (let o in temp) {
+    // for (let o in temp) 
     //     arrOfProjects.push(temp[o]);
-    // }
     // for (let t in tt)
     //     arrOfTasks.push(tt[t]);
     // sideArr[2].tasks = arrOfProjects;
@@ -294,10 +291,6 @@ export function update(arr = sideArr) {
         let filt = arrOfProjects.filter((p) => p.id == parseInt(selID));
         arr = filt[0];
     }
-    // console.log(cookie);
-    // console.log(cookie['tasks-arr']);
-    // console.log('wow')
-
     generateHome(parseInt(selID), arr);
 }
 export function newBtn() {
