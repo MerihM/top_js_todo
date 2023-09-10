@@ -183,10 +183,10 @@ export function newModal() {
 }
 export function addNewTask(title, description, dueDate, priority) {
     arrOfTasks.push(newTask(title, description, dueDate, priority));
-    let main = document.querySelector('main');
     let task = arrOfTasks[arrOfTasks.length - 1];
-    main.appendChild(generateCard(task));
-    addEvents(task.id);
+    let sel = document.querySelector('.selected');
+    let selID = sel.id.replace('project-container-', '');
+    console.log(sel);
 }
 
 
@@ -252,13 +252,7 @@ export function makeCardsP(arr) {
             let sel = document.querySelector('.selected');
             sel.classList.remove('selected');
             c.classList.add('selected');
-            if (parseInt(tempID) > 3) {
-                let filt = arrOfProjects.filter((p) => p.id == tempID);
-                update(filt[0])
-            }
-            else {
-                update();
-            }
+            update();
         })
     }
 }
@@ -274,10 +268,14 @@ export function generateHome(index, arr = sideArr) {
     document.body.append(newBtn());
 }
 export function update(arr = sideArr) {
-    unifinished = arrOfTasks.filter((t) => !t.status);
-    sideArr[1].tasks = unifinished;
     let select = document.querySelector('.selected');
     let selID = select.id.replace('project-container-', '');
+    if (parseInt(selID) > 3) {
+        let filt = arrOfProjects.filter((p) => p.id == parseInt(selID));
+        arr = filt[0];
+    }
+    unifinished = arrOfTasks.filter((t) => !t.status);
+    sideArr[1].tasks = unifinished;
     generateHome(parseInt(selID), arr);
 }
 export function newBtn() {
