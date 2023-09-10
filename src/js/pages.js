@@ -213,8 +213,8 @@ export function newProject(title) {
 }
 export let arrOfProjects = [];
 export let sideArr = []
-sideArr.push(newProject('All Tasks'));
-sideArr.push(newProject('Incomplete'));
+sideArr.push(newProject('Home'));
+sideArr.push(newProject('Unfinished'));
 sideArr.push(newProject('Projects'));
 sideArr.push(newProject('Notes'));
 sideArr[2].tasks = arrOfProjects;
