@@ -186,6 +186,10 @@ export function addNewTask(title, description, dueDate, priority) {
     let task = arrOfTasks[arrOfTasks.length - 1];
     let sel = document.querySelector('.selected');
     let selID = sel.id.replace('project-container-', '');
+    if (parseInt(selID) > 3) {
+        let filt = arrOfProjects.filter((p) => p.id == parseInt(selID));
+        filt[0].tasks.push(task);
+    }
     console.log(sel);
 }
 
