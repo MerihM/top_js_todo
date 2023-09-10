@@ -271,6 +271,7 @@ export function generateHome(index, arr = sideArr) {
     makeCards(arr.tasks);
     let select = document.querySelector(`#project-container-${index}`);
     select.classList.add('selected');
+    document.body.append(newBtn());
 }
 export function update(arr = sideArr) {
     unifinished = arrOfTasks.filter((t) => !t.status);
@@ -278,4 +279,14 @@ export function update(arr = sideArr) {
     let select = document.querySelector('.selected');
     let selID = select.id.replace('project-container-', '');
     generateHome(parseInt(selID), arr);
+}
+export function newBtn() {
+    let btn = document.createElement('button');
+    btn.classList.add('btn', 'btn-info', 'border', 'rounded-circle', 'position-fixed', 'bottom-0', 'ms-3', 'fs-1', 'mb-4');
+    btn.innerText = '+';
+    btn.addEventListener('click', () => {
+        console.log('click');
+        newModal();
+    })
+    return btn;
 }
