@@ -33,7 +33,7 @@ export function deleteModals() {
 export function deleteTask(id) {
     let selected = document.getElementById(`task-${id}`)
     selected.remove();
-    update();
+    // update();
 }
 export function addEvents(id) {
     let deleteBtn = document.getElementById(`card-delete-${id}`);
@@ -52,12 +52,14 @@ export function addEvents(id) {
         let btnID = e.target.id.replace('card-delete-', '');
         removeObjectWithId(btnID);
         deleteTask(btnID);
+        update();
     })
     status.addEventListener('click', (e) => {
-        let btnID = e.target.id.replace('card-status-', '');
         task.status = !task.status;
         updateCard(task);
+        let btnID = e.target.id.replace('card-status-', '');
         addEvents(btnID);
+        update();
     })
     details.addEventListener('click', () => {
         deleteModals();
@@ -103,11 +105,13 @@ export function detailsModal(task) {
         task.status = !task.status;
         updateCard(task);
         addEvents(task.id);
+        update();
     })
     deleteM.addEventListener('click', (e) => {
         let btnID = e.target.id.replace('details-modal-delete-', '');
         removeObjectWithId(btnID);
         deleteTask(btnID);
+        update();
     })
 }
 export function editModal(task) {
@@ -119,6 +123,7 @@ export function editModal(task) {
     let saveBtn = document.querySelector(`#save-edit-${task.id}`);
     saveBtn.addEventListener('click', () => {
         editSave(task, myModal);
+        update();
     });
 }
 export function editSave(task, modal) {
@@ -164,6 +169,7 @@ export function newModal() {
         if (requiredData) {
             addNewTask(title.value, description.value, date.value, priority.value);
             myModal.hide();
+            update();
         }
         else {
             if (title.value == '' && date.value == '')
@@ -267,6 +273,8 @@ export function generateHome(index, arr = sideArr) {
     select.classList.add('selected');
 }
 export function update(arr = sideArr) {
+    unifinished = arrOfTasks.filter((t) => !t.status);
+    sideArr[1].tasks = unifinished;
     let select = document.querySelector('.selected');
     let selID = select.id.replace('project-container-', '');
     generateHome(parseInt(selID), arr);
