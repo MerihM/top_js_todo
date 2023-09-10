@@ -295,7 +295,7 @@ export function update(arr = sideArr) {
 }
 export function newBtn() {
     let btn = document.createElement('button');
-    btn.classList.add('btn', 'btn-info', 'border', 'rounded-circle', 'position-fixed', 'bottom-0', 'ms-3', 'fs-1', 'mb-4');
+    btn.classList.add('btn', 'btn-outline-dark', 'rounded-circle', 'position-fixed', 'bottom-0', 'ms-3', 'fs-2', 'mb-4');
     btn.innerText = '+';
     btn.addEventListener('click', () => {
         newModal();
