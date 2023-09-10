@@ -12,35 +12,6 @@
   - X button: Deletes note
   - Title/Text: Edits text (as text input with hidden borders)
 
-# Side bar
-
-## All (except Projects)
-
-**Display:**
-- Always:
-  - Title
-  - Number of related tasks bubble
-- Selected:
-  - Bolded title
-- Hover:
-  - Slightly darker background
-
-## Home
-
-**Display:**
-- Number in bubble (total number of tasks)
-**Functionality:**
-- On click:
-  - Display all tasks with task cards
-
-## Unfinished
-
-**Display:**
-- Number in bubble (number of unfinished tasks)
-**Functionality:**
-- On click:
-  - Display all unfinished tasks
-
 ## Finished
 
 **Display:**
@@ -48,27 +19,6 @@
 **Functionality:**
 - On click:
   - Display all finished tasks
-
-## Projects
-
-**Display:**
-- Projects title
-- Button for dropdown
-- New project button
-**Functionality:**
-- On click:
-  - Show/Hide all projects
-  - Dropdown button - Show/Hide all projects
-  - New project button - Display new project modal
-- When hidden:
-  - Display number of projects in bubble
-
-## Each Project
-
-**Display:**
-- Number in bubble (number of tasks in the project)
-**Functionality:**
-- Display tasks related to the project
 
 ## Notes
 
@@ -83,14 +33,6 @@
 
 # Data Structure 
 
-### Project Object:
-```json
-{
-    "ID": "id from projectCtr",
-    "Title": "title of project",
-    "Tasks": "[array of tasks]"
-}
-```
 ### Note Object:
 ```json
 {
@@ -102,25 +44,6 @@
 ``` 
 
 # Modules
-
-## Task.js
-- Link together everything
-
-## Projects.js
-
-- Class with the structure outlined above
-- **New project:**
-    - Creates variables with values from the modal
-    - Initializes a new project with the variables
-    - Returns the project
-- **Return projects structure:**
-    - Takes an array as an argument
-    - Creates a variable `Projects div`
-    - Adds classes and text to `Projects div`
-    - Iterates through the array
-        - Generates a collapsible member
-        - Appends the collapsible member to `Projects div`
-    - Returns `Projects div`
 
 ## Notes.js
 
@@ -144,36 +67,3 @@
     - Adds text to variables
     - Appends the required content
     - Returns the structure
-
-## Page.js
-
-- Imports modules
-- **Render mainTasks:**
-    - Takes an array as an argument
-    - Iterates through the array
-        - Calls the display method for the object
-    - Appends the content to the body
-- **Render mainNotes:**
-    - Takes an array as an argument
-    - Iterates through the array
-        - Calls the display method for the object
-    - Appends the content to the body
-- **Render side:**
-    - Takes an array as an argument
-    - Creates a side div
-    - Creates paragraphs for home, finished, unfinished, and notes with appropriate classes
-    - Appends everything to the side div
-    - Calls and appends the `return projects structure` to the side div
-    - Appends the side div to the body
-
-## Index.js
-
-- Imports modules
-- Creates arrays for projects and notes
-- Creates counters for tasks, projects, and notes
-- Sets up event listeners for buttons (new task, new project, new note, details, delete, display)
-    - Each listener reads the button ID to determine the action
-    - For new and delete actions, the ID of the selected item from the side is remembered
-    - For new and delete actions, the page is cleared
-    - For new and delete actions, the side is re-rendered
-    - For new and delete actions, the remembered item is clicked and the main content is re-rendered
