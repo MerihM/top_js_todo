@@ -3,8 +3,9 @@ $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
 
 :root {
-    --side-clr: #b44aff;
-    --hvr-clr: #8d31ce;
+    --hvr-clr: #b44aff;
+    // --hvr-clr: #8d31ce;
+    --side-clr: #8d31ce;
     --mn-clr: rgb(226, 205, 205);
 }
 
