@@ -2,6 +2,12 @@
 $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
 
+:root {
+    --side-clr: #b44aff;
+    --hvr-clr: #8d31ce;
+    --mn-clr: rgb(226, 205, 205);
+}
+
 .taskCard {
     margin: 3%;
     background-size: 200% 200%;
@@ -76,12 +82,12 @@ body {
 side {
     width: 25%;
     display: block;
-    background-color: red;
+    background-color: var(--side-clr);
 }
 
 main {
     width: 75%;
-    background-color: aqua;
+    background-color: var(--mn-clr);
 }
 
 .cont {
@@ -93,5 +99,5 @@ main {
 
 .cont:hover,
 .selected {
-    background-color: rgb(169, 35, 35);
+    background-color: var(--hvr-clr);
 }
