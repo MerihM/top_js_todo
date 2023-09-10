@@ -82,9 +82,15 @@ export function updateCard(obj) {
     deleteTask('delete');
 }
 export function removeObjectWithId(id) {
-    let objWithIDIndex = arrOfTasks.findIndex((obj) => obj.id == id)
-    if (objWithIDIndex > -1)
+    let objWithIDIndex = arrOfTasks.findIndex((obj) => obj.id == id);
+    if (objWithIDIndex > -1) {
+        for (let p of arrOfProjects) {
+            let o = p.tasks.findIndex((o) => o.id == id);
+            if (o > -1)
+                p.tasks.splice(o, 1);
+        }
         arrOfTasks.splice(objWithIDIndex, 1);
+    }
 }
 export function detailsModal(task) {
     deleteModals();
@@ -190,11 +196,7 @@ export function addNewTask(title, description, dueDate, priority) {
         let filt = arrOfProjects.filter((p) => p.id == parseInt(selID));
         filt[0].tasks.push(task);
     }
-    console.log(sel);
 }
-
-
-
 import { generateNewProject, generateCardP } from "./projects/modal.js";
 export class Project {
     constructor(id, title) {
@@ -287,7 +289,6 @@ export function newBtn() {
     btn.classList.add('btn', 'btn-info', 'border', 'rounded-circle', 'position-fixed', 'bottom-0', 'ms-3', 'fs-1', 'mb-4');
     btn.innerText = '+';
     btn.addEventListener('click', () => {
-        console.log('click');
         newModal();
     })
     return btn;
